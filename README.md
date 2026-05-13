@@ -4,11 +4,11 @@
 
 Switch storage providers by changing a single config line — no code changes required.
 
-[![CI](https://github.com/ak2311581/storix/actions/workflows/ci.yml/badge.svg)](https://github.com/ak2311581/storix/actions)
+[![CI](https://github.com/ak9347128658/storix/actions/workflows/ci.yml/badge.svg)](https://github.com/ak9347128658/storix/actions)
 [![npm version](https://badge.fury.io/js/storebridge.svg)](https://badge.fury.io/js/storebridge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
-[![Coverage](https://img.shields.io/codecov/c/github/ak2311581/storix)](https://codecov.io/gh/ak2311581/storix)
+[![Coverage](https://img.shields.io/codecov/c/github/ak9347128658/storix)](https://codecov.io/gh/ak9347128658/storix)
 
 ---
 
@@ -656,7 +656,7 @@ Storix itself imposes no size limit. Provider limits apply (e.g. S3 single PUT m
 See [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, coding conventions, and the PR process.
 
 ```bash
-git clone https://github.com/ak2311581/storix.git
+git clone https://github.com/ak9347128658/storix.git
 cd storebridge
 npm install
 npm run build
@@ -667,4 +667,4 @@ npm test
 
 ## License
 
-MIT © [Asif Khan](https://github.com/ak2311581)
+MIT © [Asif Khan](https://github.com/ak9347128658)
