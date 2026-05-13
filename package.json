@@ -1,6 +1,6 @@
 {
   "name": "storebridge",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A unified, production-ready cloud storage abstraction library for Node.js and TypeScript",
   "keywords": [
     "storage",
