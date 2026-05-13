@@ -1,4 +1,4 @@
-import type { Readable } from 'node:stream';
+import { Readable } from 'node:stream';
 import type {
   CopyOptions,
   FileListEntry,
@@ -18,7 +18,8 @@ import type {
 } from '../../types/index.js';
 import { BaseProvider } from '../../core/BaseProvider.js';
 import { FileNotFoundError, ProviderError } from '../../errors/index.js';
-import { toReadable } from '../../utils/index.js';
+import { getBodySize } from '../../utils/index.js';
+import type { FileBody } from '../../types/index.js';
 
 type S3Client = import('@aws-sdk/client-s3').S3Client;
 type S3ClientConfig = import('@aws-sdk/client-s3').S3ClientConfig;
@@ -80,19 +81,27 @@ export class S3Provider extends BaseProvider {
     const visibility = this.resolveVisibility(options.visibility);
     const acl = visibility === 'public' ? 'public-read' : 'private';
 
-    await this.client.send(
-      new PutObjectCommand({
-        Bucket: this.bucket,
-        Key: options.key,
-        Body: toReadable(options.file),
-        ContentType: options.contentType,
-        ACL: acl,
-        Metadata: options.metadata,
-        ContentDisposition: options.contentDisposition,
-        ContentEncoding: options.contentEncoding,
-        CacheControl: options.cacheControl,
-      }),
-    );
+    const params = {
+      Bucket: this.bucket,
+      Key: options.key,
+      Body: await resolveBody(options.file),
+      ContentType: options.contentType,
+      ContentLength: getBodySize(options.file),
+      Metadata: options.metadata,
+      ContentDisposition: options.contentDisposition,
+      ContentEncoding: options.contentEncoding,
+      CacheControl: options.cacheControl,
+    };
+
+    try {
+      await this.client.send(new PutObjectCommand({ ...params, ACL: acl }));
+    } catch (err: any) {
+      if (err.Code === 'AccessControlListNotSupported') {
+        await this.client.send(new PutObjectCommand({ ...params }));
+      } else {
+        throw err;
+      }
+    }
 
     const url = await this.doGetUrl(options.key);
     return {
@@ -326,4 +335,19 @@ export class S3Provider extends BaseProvider {
       etag: p.ETag?.replace(/"/g, ''),
     }));
   }
+}
+
+/**
+ * Resolve a FileBody to a form the AWS SDK can hash correctly.
+ * Readable streams are passed through as-is; everything else is
+ * materialised into a Buffer so the SDK's checksum middleware can
+ * compute the hash without needing to buffer a flowing stream itself.
+ */
+async function resolveBody(body: FileBody): Promise<Buffer | Readable> {
+  if (body instanceof Readable) return body;
+  if (body instanceof Buffer) return body;
+  if (body instanceof Uint8Array) return Buffer.from(body);
+  if (typeof body === 'string') return Buffer.from(body, 'utf8');
+  if (body instanceof Blob) return Buffer.from(await body.arrayBuffer());
+  return Buffer.from(body as Uint8Array);
 }
