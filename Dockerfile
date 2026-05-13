@@ -21,8 +21,8 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY package.json README.md ./
 
-LABEL org.opencontainers.image.title="Storix" \
+LABEL org.opencontainers.image.title="StoreBridge" \
       org.opencontainers.image.description="Unified Cloud Storage SDK" \
-      org.opencontainers.image.source="https://github.com/ak2311581/storix"
+      org.opencontainers.image.source="https://github.com/ak9347128658/storix"
 
-CMD ["node", "-e", "console.log('Storix container ready')"]
+CMD ["node", "-e", "console.log('StoreBridge container ready')"]

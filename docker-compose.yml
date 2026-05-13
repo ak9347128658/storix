@@ -28,8 +28,8 @@ services:
     entrypoint: >
       /bin/sh -c "
         mc alias set local http://minio:9000 minioadmin minioadmin;
-        mc mb local/storix-test --ignore-existing;
-        mc anonymous set public local/storix-test;
+        mc mb local/storebridge-test --ignore-existing;
+        mc anonymous set public local/storebridge-test;
         exit 0;
       "
 

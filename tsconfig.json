@@ -15,7 +15,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "paths": {
-      "@storix/*": ["./src/*"]
+      "@storebridge/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "isolatedModules": true,

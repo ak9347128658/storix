@@ -5,8 +5,8 @@
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { createStorage } from 'storix';
-import type { UploadResult } from 'storix';
+import { createStorage } from 'storebridge';
+import type { UploadResult } from 'storebridge';
 
 // Disable Next.js body parser so we can handle raw streams.
 export const config = { api: { bodyParser: false } };

@@ -1,5 +1,5 @@
 {
-  "name": "storix",
+  "name": "storebridge",
   "version": "1.0.0",
   "description": "A unified, production-ready cloud storage abstraction library for Node.js and TypeScript",
   "keywords": [
@@ -24,12 +24,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ak2311581/storix.git"
+    "url": "https://github.com/ak9347128658/storix.git"
   },
   "bugs": {
-    "url": "https://github.com/ak2311581/storix/issues"
+    "url": "https://github.com/ak9347128658/storix/issues"
   },
-  "homepage": "https://github.com/ak2311581/storix#readme",
+  "homepage": "https://github.com/ak9347128658/storix#readme",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -110,48 +110,66 @@
   },
   "peerDependencies": {
     "@aws-sdk/client-s3": ">=3.0.0",
-    "@aws-sdk/s3-request-presigner": ">=3.0.0",
     "@aws-sdk/lib-storage": ">=3.0.0",
-    "@google-cloud/storage": ">=7.0.0",
+    "@aws-sdk/s3-request-presigner": ">=3.0.0",
     "@azure/storage-blob": ">=12.0.0",
+    "@google-cloud/storage": ">=7.0.0",
     "@supabase/supabase-js": ">=2.0.0",
     "firebase-admin": ">=11.0.0",
-    "node-appwrite": ">=13.0.0",
-    "minio": ">=8.0.0"
+    "minio": ">=8.0.0",
+    "node-appwrite": ">=13.0.0"
   },
   "peerDependenciesMeta": {
-    "@aws-sdk/client-s3": { "optional": true },
-    "@aws-sdk/s3-request-presigner": { "optional": true },
-    "@aws-sdk/lib-storage": { "optional": true },
-    "@google-cloud/storage": { "optional": true },
-    "@azure/storage-blob": { "optional": true },
-    "@supabase/supabase-js": { "optional": true },
-    "firebase-admin": { "optional": true },
-    "node-appwrite": { "optional": true },
-    "minio": { "optional": true }
+    "@aws-sdk/client-s3": {
+      "optional": true
+    },
+    "@aws-sdk/s3-request-presigner": {
+      "optional": true
+    },
+    "@aws-sdk/lib-storage": {
+      "optional": true
+    },
+    "@google-cloud/storage": {
+      "optional": true
+    },
+    "@azure/storage-blob": {
+      "optional": true
+    },
+    "@supabase/supabase-js": {
+      "optional": true
+    },
+    "firebase-admin": {
+      "optional": true
+    },
+    "node-appwrite": {
+      "optional": true
+    },
+    "minio": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.700.0",
-    "@aws-sdk/s3-request-presigner": "^3.700.0",
     "@aws-sdk/lib-storage": "^3.700.0",
-    "@google-cloud/storage": "^7.14.0",
+    "@aws-sdk/s3-request-presigner": "^3.700.0",
     "@azure/storage-blob": "^12.27.0",
+    "@google-cloud/storage": "^7.14.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.1",
     "@supabase/supabase-js": "^2.47.0",
-    "firebase-admin": "^12.7.0",
-    "node-appwrite": "^14.0.0",
-    "minio": "^8.0.2",
     "@types/node": "^22.10.0",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
     "@vitest/coverage-v8": "^2.1.8",
     "eslint": "^9.17.0",
+    "firebase-admin": "^12.7.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.11",
+    "minio": "^8.0.2",
+    "node-appwrite": "^14.0.0",
     "prettier": "^3.4.2",
     "semantic-release": "^24.2.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.1",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"

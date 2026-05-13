@@ -1,12 +1,12 @@
-# Contributing to Storix
+# Contributing to StoreBridge
 
 Thank you for your interest in contributing! This guide explains the process.
 
 ## Development Setup
 
 ```bash
-git clone https://github.com/ak2311581/storix.git
-cd storix
+git clone https://github.com/ak9347128658/storix.git
+cd storebridge
 npm install
 npm run build
 npm test
@@ -46,7 +46,7 @@ src/
 - No `any` types — use generics or unknown
 - No unused variables
 - Prefer async/await over raw Promises
-- Never swallow errors — always rethrow or convert to a typed StorixError
+- Never swallow errors — always rethrow or convert to a typed StoreBridgeError
 - No `console.log` — use the `Logger` class
 - All public API must have JSDoc comments
 - Tests must cover the happy path, not-found, and error cases

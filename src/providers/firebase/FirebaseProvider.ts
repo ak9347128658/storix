@@ -61,7 +61,7 @@ export class FirebaseProvider extends BaseProvider {
 
     // Reuse existing app if already initialised (prevents duplicate app error).
     const existingApps = getApps();
-    const appName = `storix-firebase-${credentials.projectId}`;
+    const appName = `storebridge-firebase-${credentials.projectId}`;
     const existing = existingApps.find((a) => a.name === appName);
 
     this.app =

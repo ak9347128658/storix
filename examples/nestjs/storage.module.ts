@@ -6,10 +6,10 @@
 
 import { Module, Injectable, Global, type OnModuleInit } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { createStorage, type StorageClient } from 'storix';
+import { createStorage, type StorageClient } from 'storebridge';
 
 // ---------------------------------------------------------------------------
-// StorageService — wraps the Storix client
+// StorageService — wraps the StoreBridge client
 // ---------------------------------------------------------------------------
 
 @Injectable()

@@ -1,11 +1,11 @@
-# Storix
+# StoreBridge
 
 **A unified, production-ready cloud storage SDK for Node.js and TypeScript.**
 
 Switch storage providers by changing a single config line — no code changes required.
 
 [![CI](https://github.com/ak2311581/storix/actions/workflows/ci.yml/badge.svg)](https://github.com/ak2311581/storix/actions)
-[![npm version](https://badge.fury.io/js/storix.svg)](https://badge.fury.io/js/storix)
+[![npm version](https://badge.fury.io/js/storebridge.svg)](https://badge.fury.io/js/storebridge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
 [![Coverage](https://img.shields.io/codecov/c/github/ak2311581/storix)](https://codecov.io/gh/ak2311581/storix)
@@ -103,7 +103,7 @@ Switch storage providers by changing a single config line — no code changes re
 
 ```bash
 # Core (no provider SDK)
-npm install storix
+npm install storebridge
 
 # Install only the SDK you need:
 npm install @aws-sdk/client-s3 @aws-sdk/s3-request-presigner   # S3 / R2 / Spaces / B2
@@ -120,7 +120,7 @@ npm install node-appwrite                                       # Appwrite
 ## Quick Start
 
 ```typescript
-import { createStorage } from 'storix';
+import { createStorage } from 'storebridge';
 
 const storage = await createStorage({
   provider: 's3',
@@ -383,7 +383,7 @@ import {
   PermissionError,
   MaxRetriesExceededError,
   ValidationError,
-} from 'storix';
+} from 'storebridge';
 
 try {
   await storage.getMetadata('missing.png');
@@ -575,7 +575,7 @@ See the `examples/` directory for full, runnable examples.
 ### Custom provider
 
 ```typescript
-import { BaseProvider, createStorageFromProvider } from 'storix';
+import { BaseProvider, createStorageFromProvider } from 'storebridge';
 
 class MyProvider extends BaseProvider {
   readonly providerName = 'my-provider';
@@ -657,7 +657,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, coding convention
 
 ```bash
 git clone https://github.com/ak2311581/storix.git
-cd storix
+cd storebridge
 npm install
 npm run build
 npm test

@@ -10,7 +10,7 @@
 
 import express, { type Request, type Response, type NextFunction } from 'express';
 import multer from 'multer';
-import { createStorage } from 'storix';
+import { createStorage } from 'storebridge';
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -107,4 +107,4 @@ app.get('/files', async (req: Request, res: Response, next: NextFunction) => {
   }
 });
 
-app.listen(3000, () => console.warn('Storix Express example running on :3000'));
+app.listen(3000, () => console.warn('StoreBridge Express example running on :3000'));
